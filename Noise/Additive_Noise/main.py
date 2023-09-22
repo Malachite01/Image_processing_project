@@ -3,7 +3,7 @@ from skimage import io
 import numpy as np
 
 # Variables
-image_path = 'Reference_Images/image1_reference.png'
+image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
 
 additive_noise = input('Enter the additive noise value : ')
@@ -18,6 +18,6 @@ for row in range(len(image)):
       else:
         image[row][pixel] = np.clip((image[row][pixel] - additive_noise), 0, 255)
 
-# io.imsave('image_additive_noise', image)
+io.imsave('image_additive_noise.png', image)
 io.imshow(image)
 io.show()
