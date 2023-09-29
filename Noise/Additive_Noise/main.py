@@ -18,5 +18,3 @@ for row in range(len(image)):
         image[row][pixel] = np.clip((image[row][pixel] - additive_noise), 0, 255)
 
 io.imsave('image_additive_noise.png', image)
-io.imshow(image)
-io.show()

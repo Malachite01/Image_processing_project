@@ -17,6 +17,4 @@ for line in range(len(image)):
                 image[line][pixel] = 255
     
 io.imsave('image_salt_pepper.png', image)
-io.imshow(image)
-io.show()
 
