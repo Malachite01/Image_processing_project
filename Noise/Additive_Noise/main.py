@@ -9,7 +9,7 @@ def compute_snr(image, noisy_image):
 
 image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
-normal_image = image.copy()
+normal_image = image.copy().astype(float) # Convert to float for accurate calculations
 
 # The strength of the additive noise
 additive_noise = input('Enter the additive noise value (0-255) : ')
@@ -33,4 +33,5 @@ for row in range(len(image)):
 
 io.imsave('image_additive_noise.png', image)
 print('Image saved as image_additive_noise.png\n')
-print('SNR : ' + str(compute_snr(normal_image, image)))
+computed_snr = compute_snr(normal_image, image.astype(float))
+print(f'Computed SNR: {computed_snr:.4f}')

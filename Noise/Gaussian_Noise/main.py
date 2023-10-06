@@ -18,7 +18,7 @@ def compute_snr(image, noisy_image):
 
 image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
-normal_image = image.copy()
+normal_image = image.copy().astype(float) # Convert to float for accurate calculations
 
 # Définir la moyenne et l'écart-type du bruit gaussien
 mu = input("Enter the mean of the gaussian noise (between -255 and 255): ")
@@ -32,4 +32,5 @@ for line in range(len(image)):
     
 io.imsave('image_gaussian.png', image)
 print('Image saved as image_gaussian.png\n')
-print('SNR : ' + str(compute_snr(normal_image, image)))
+computed_snr = compute_snr(normal_image, image.astype(float))
+print(f'Computed SNR: {computed_snr:.4f}')
