@@ -12,8 +12,8 @@ normal_image = io.imread(image_path).astype(float)  # Convert to float for accur
 
 image_path_noisy = 'image1_bruitee_snr_16.4138.png'
 noisy_image = io.imread(image_path_noisy).astype(float)  # Convert to float for accurate calculations
-real_snr = float(image_path_noisy.split("_snr_")[1].split(".png")[0])  # Convert to float
 
+real_snr = float(image_path_noisy.split("_snr_")[1].split(".png")[0])  # Convert to float
 print(f'The SNR should be {real_snr}')
 computed_snr = compute_snr(normal_image, noisy_image)
 print(f'Computed SNR: {computed_snr:.4f}')
