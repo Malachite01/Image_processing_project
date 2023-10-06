@@ -1,8 +1,15 @@
 from skimage import io
 import numpy as np
 
+def compute_snr(image, noisy_image):
+    signal_power = np.mean(image**2)
+    noise_power = np.mean((image - noisy_image)**2)
+    snr = 10 * np.log10(signal_power / noise_power)
+    return snr
+
 image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
+normal_image = image.copy()
 
 # The strength of the multiplicative noise
 multiplicative_noise = input('Enter the multiplicative noise value (0-255) : ')
@@ -25,3 +32,5 @@ for row in range(len(image)):
             image[row][pixel] = np.clip(image[row][pixel] * (1 + noise), 0, 255)
 
 io.imsave('image_multiplicative_noise.png', image)
+print('Image saved as image_multiplicative_noise.png\n')
+print('SNR : ' + str(compute_snr(normal_image, image)))
