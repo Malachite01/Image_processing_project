@@ -43,7 +43,7 @@ def apply_kernel(kernel, image, divider):
     return output_image
             
 # Read the image
-choice = input("Choose a noise type to denoise: \n1. Additive\n2. Gaussian\n3. Multiplicative\n4. Salt & Pepper\n")
+choice = input("1. Additive\n2. Gaussian\n3. Multiplicative\n4. Salt & Pepper\nChoose a noise type to denoise : ")
 image_path = ''
 if choice == '1':
     image_path = 'noisy_images/image_additive_noise.png'
