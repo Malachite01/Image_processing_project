@@ -8,6 +8,8 @@ def generate_gaussian_noise(mu, sigma):
     u1 = random.random()
     u2 = random.random()
     x = math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
+    #TODO: random.normalvariate(mu, sigma)
+    #TODO: faire du np.random.normal(mu, sigma) dans chaque type de bruits au lieu de demander a l'user de choisir entre 0-255
     return mu + sigma * x
 
 def compute_snr(image, noisy_image):
