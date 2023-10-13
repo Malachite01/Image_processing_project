@@ -2,17 +2,11 @@ from skimage import io
 import numpy as np
 from scipy.signal import convolve2d
 
-# Définir le noyau (vous devez le spécifier)
-# Matrix for identity
-# kernel = np.array([[0, 0, 0],
-#                    [0, 1, 0],
-#                    [0, 0, 0]])
-
-# Définir le noyau (vous devez le spécifier)
-# Matrix for edge detection
-# kernel = np.array([[-1, -1, -1],
-#                    [-1,  8, -1],
-#                    [-1, -1, -1]])
+def compute_snr(image, noisy_image):
+    signal_power = np.mean(image**2)
+    noise_power = np.mean((image - noisy_image)**2)
+    snr = 10 * np.log10(signal_power / noise_power)
+    return snr
 
 def apply_kernel(kernel, image, divider):
     # Dimensions de l'image et du noyau
@@ -49,7 +43,7 @@ def apply_kernel(kernel, image, divider):
     return output_image
             
 # Read the image
-image_path = 'image_additive_noise.png'
+image_path = 'image_multiplicative_noise.png'
 image = io.imread(image_path)
 
 # Matrix for blurring the image
@@ -62,8 +56,21 @@ kernel_sharp = np.array([[0, -1, 0],
                         [-1, 5, -1],
                         [0, -1, 0]])
 
+# Matrix for edge detection
+kernel_edge = np.array([[-1, -1, -1],
+                        [-1,  8, -1],
+                        [-1, -1, -1]])
+
 output_image_blurr = apply_kernel(kernel_blurr, image, 9)
-output_image_sharp = apply_kernel(kernel_sharp, output_image_blurr, 0)
 # Enregistrez l'image de sortie blurried.png
-io.imsave('image_convolved.png', output_image_sharp)
+io.imsave('image_convolved.png', output_image_blurr)
 print('Image saved as image_convolved.png\n')
+# SNR
+image_path_base = '../../Reference_Images/image1_reference.png'
+image_base = io.imread(image_path_base)
+normal_image = image_base.copy().astype(float) # Convert to float for accurate calculations
+
+original_snr = compute_snr(normal_image, image.astype(float))
+final_snr = compute_snr(normal_image, output_image_blurr.astype(float))
+print(f'Original SNR with noised image: {original_snr:.4f}')
+print(f'Final SNR with convolved image: {final_snr:.4f}')
