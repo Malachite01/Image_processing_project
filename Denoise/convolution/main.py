@@ -43,8 +43,21 @@ def apply_kernel(kernel, image, divider):
     return output_image
             
 # Read the image
-image_path = 'image_multiplicative_noise.png'
+choice = input("Choose a noise type to denoise: \n1. Additive\n2. Gaussian\n3. Multiplicative\n4. Salt & Pepper\n")
+image_path = ''
+if choice == '1':
+    image_path = 'noisy_images/image_additive_noise.png'
+elif choice == '2':
+    image_path = 'noisy_images/image_gaussian.png'
+elif choice == '3':
+    image_path = 'noisy_images/image_multiplicative_noise.png'
+elif choice == '4':
+    image_path = 'noisy_images/image_salt_pepper.png'
+else:
+    print('Invalid choice')
+    exit()
 image = io.imread(image_path)
+print('Valid choice, loading...\n')
 
 # Matrix for blurring the image
 kernel_blurr = np.array([[1, 1, 1],
