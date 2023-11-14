@@ -43,8 +43,12 @@ image = io.imread(image_path)
 print('Valid choice, loading...\n')
 
 # Apply median filter
-#TODO: ajouter choix utilisateur pour la taille du kernel
-output_image_median = median_filter(image, kernel_size=3)
+kernel_size=0
+
+while (kernel_size %2 != 1): 
+    kernel_size_input = input("Enter the kernel size (odd number only, default=3): ")
+    kernel_size = 3 if kernel_size_input == "" else int(kernel_size_input)
+output_image_median = median_filter(image, kernel_size)
 
 # Save the denoised image
 io.imsave('image_denoised.png', output_image_median)
