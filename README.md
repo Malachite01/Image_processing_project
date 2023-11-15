@@ -44,7 +44,7 @@ Some reference images are given in the project for your testing. You can also co
 Denoise using the median filter on an image with additive noise :
 <br>
 <div>
-  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/82c68b30-7fb7-4111-acd3-bcdf978ffdad" width="230">
+  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/9bd640f4-056b-4f98-aa18-d2fb55b374cd" width="230">
 
   <figcaption>
   
@@ -52,7 +52,7 @@ Denoise using the median filter on an image with additive noise :
   
   </figcaption>
 
-  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/2c352e5c-b49e-4997-914b-79eea207acb8" width="230">
+  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/1124d7ba-1462-4680-9441-4d19b016f748" width="230">
 
   <figcaption>
   
@@ -66,7 +66,7 @@ Denoise using the median filter on an image with additive noise :
 Add noise using additive noise on an image :
 <br>
 <div>
-  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/d1853415-966d-4c54-bbc0-aa1779870788" width="230">
+  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/46b6c030-0825-4804-87d1-9a1febddce40" width="230">
 
   <figcaption>
   
@@ -74,7 +74,7 @@ Add noise using additive noise on an image :
   
   </figcaption>
 
-  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/316e668b-73ed-4dd4-9114-ded0ead62fee" width="230">
+  <img src="https://github.com/Malachite01/Image_processing_project/assets/112857106/2c068447-03d5-4060-b22d-098f8104f5a0" width="230">
 
   <figcaption>
   
