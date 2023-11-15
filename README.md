@@ -1,5 +1,13 @@
 # Image_processing_project
 
+- [Image\_processing\_project](#image_processing_project)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Functionalities](#functionalities)
+  - [Examples](#examples)
+    - [Denoise](#denoise)
+    - [Noise](#noise)
+
 ## Setup
 
 To use this project, you first need to install the depedencies.
