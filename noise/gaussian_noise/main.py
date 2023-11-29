@@ -13,14 +13,9 @@ image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
 normal_image = image.copy().astype(float) # Convert to float for accurate calculations
 
-
-
-# Définir la moyenne et l'écart-type du bruit gaussien
+# Defining the mean and standard deviation of the gaussian noise
 mu = input("Enter the mean of the gaussian noise (between -255 and 255): ")
 sigma = input("Enter the standard deviation of the gaussian noise (between 0 and 255): ")
-while mu == '' or sigma == '':
-    mu = input("Enter the mean of the gaussian noise (between -255 and 255): ")
-    sigma = input("Enter the standard deviation of the gaussian noise (between 0 and 255): ")
 
 for line in range(len(image)):
     for pixel in range(len(image[line])):
