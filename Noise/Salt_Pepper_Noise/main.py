@@ -11,7 +11,12 @@ image_path = '../../Reference_Images/image1_reference.png'
 image = io.imread(image_path)
 normal_image = image.copy().astype(float)  # Convert to float for accurate calculations
 
-valeur = input("Enter the additive noise value (0-1, the stronger the stronger): ")
+# The probability of the noise
+valeur = input("Enter the additive noise value (0-1, the higher the stronger): ")
+while valeur == '' or float(valeur) < 0 or float(valeur) > 1:
+    valeur = input("Enter the additive noise value (0-1, the higher the stronger): ")
+
+
 
 for line in range(len(image)):
     for pixel in range(len(image[line])):
