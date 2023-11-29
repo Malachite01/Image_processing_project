@@ -57,7 +57,6 @@ else:
     print('Invalid choice')
     exit()
 image = io.imread(image_path)
-print('Valid choice, loading...\n')
 
 # Matrix for blurring the image
 kernel_blurr = np.array([[1, 1, 1],
@@ -74,9 +73,24 @@ kernel_edge = np.array([[-1, -1, -1],
                         [-1,  8, -1],
                         [-1, -1, -1]])
 
-output_image_blurr = apply_kernel(kernel_blurr, image, 9)
+choice = input("\n1. Blurr\n2. Sharpen\n3. Edge detection\nChoose a kernel : ")
+kernel_to_apply = ''
+if choice == '1':
+    kernel_to_apply = kernel_blurr
+elif choice == '2':
+    kernel_to_apply = kernel_sharp
+elif choice == '3':
+    kernel_to_apply = kernel_edge
+else:
+    print('Invalid choice')
+    exit()
+image = io.imread(image_path)
+print('Valid choice, loading...\n')
+
+
+output_image_final = apply_kernel(kernel_to_apply, image, 9)
 # Enregistrez l'image de sortie blurried.png
-io.imsave('image_convolved.png', output_image_blurr)
+io.imsave('image_convolved.png', output_image_final)
 print('Image saved as image_convolved.png\n')
 # SNR
 image_path_base = '../../Reference_Images/image1_reference.png'
@@ -84,6 +98,6 @@ image_base = io.imread(image_path_base)
 normal_image = image_base.copy().astype(float) # Convert to float for accurate calculations
 
 original_snr = compute_snr(normal_image, image.astype(float))
-final_snr = compute_snr(normal_image, output_image_blurr.astype(float))
+final_snr = compute_snr(normal_image, output_image_final.astype(float))
 print(f'Original SNR with noised image: {original_snr:.4f}')
 print(f'Final SNR with convolved image: {final_snr:.4f}')
